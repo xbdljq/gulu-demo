@@ -1,6 +1,7 @@
 <template>
-    <button class="g-button" :class="{[`icon-${iconPosition}`]: true}" >
-        <g-icon class="icon" :name="icon"></g-icon>
+    <button class="g-button" :class="{[`icon-${iconPosition}`]: true}">
+        <g-icon class="icon" :name="icon" v-if="icon"></g-icon>
+        <g-icon class="loading" name="loading" ></g-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -8,24 +9,25 @@
     </button>
 </template>
 <script>
-   // import Icon from "./icon";
     export default {
-        //components: {Icon},
-        // props:['icon','iconPosition']
         props: {
             icon: {},
             iconPosition: {
                 type: String,
                 default: 'left',
                 //属性检查器
-                validate: function (value) {
-                    return !(value !== 'left' && value !== 'right')
+                validator: function (value) {
+                    return value === 'left' && value === 'right'
                 }
             }
         }
     }
 </script>
 <style lang="scss">
+    @keyframes spin {
+        0%{transform: rotate(0deg);}
+        100%{transform: rotate(360deg)}
+    }
     .g-button{
         font-size: var(--font-size);height: var(--button-height);
         border-radius: var(--border-radius);background: var(--button-bg);border:1px solid var(--border-color);
@@ -35,11 +37,18 @@
         &:hover{border-color:var(--border-color-hover);}
         &:active{background-color:var(--button-active-bg);}
         &:focus{outline: none;}
-        > .icon{order:1; margin-right: .1em}
         > .content{order:2}
+        > .icon{order:1; margin-right: .1em}
+
         &.icon-right{
-            > .icon{order:2; margin-left: .1em; margin-right: 0;}
             > .content{order:1;}
+            > .icon{order:2; margin-left: .1em; margin-right: 0;}
+
+        }
+        .loading{
+            -webkit-animation: spin 2s infinite linear;
+            -o-animation: spin 2s infinite linear;
+            animation: spin 2s infinite linear;
         }
     }
 
