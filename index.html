@@ -8,28 +8,53 @@
     <title>gulu</title>
     <script src="./node_modules/vue/dist/vue.min.js"></script>
     <style>
-        *{margin: 0;padding:0;box-sizing: border-box;}
-        :root{
-            --button-height:32px;
-            --font-size:14px;
-            --button-bg:#ffffff;
-            --button-active-bg:#eee;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: #ffffff;
+            --button-active-bg: #eee;
             --border-radius: 4px;
             --color: #999999;
-            --border-color:#999;
-            --border-color-hover:#666;
+            --border-color: #999;
+            --border-color-hover: #666;
 
+        }
+
+        #app {
+            margin: 20px;
+        }
+
+        body {
+            font-size: var(--font-size);
         }
     </style>
     <style>
-
+        .icon {
+            width: 1em;
+            height: 1em;
+        }
     </style>
 </head>
 <body>
 <div id="app">
-    <g-button></g-button>
+    <g-button>
+        按钮
+    </g-button>
+    <g-button icon="settings">
+        按钮
+    </g-button>
+    <g-button icon="settings" icon-position="right">
+        按钮
+    </g-button>
 </div>
 
 <script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_1176271_x0e0gubt2l9.js"></script>
 </body>
 </html>
