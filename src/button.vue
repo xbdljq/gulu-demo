@@ -47,7 +47,6 @@
         &.icon-right{
             > .content{order:1;}
             > .icon{order:2; margin-left: .1em; margin-right: 0;}
-
         }
         .loading{
             -webkit-animation: spin 2s infinite linear;
