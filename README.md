@@ -7,3 +7,6 @@
  ```
  *{box-sizing: border-box;}
  ```
+
+ ## 运行
+ parcel index.html  --no-cache
