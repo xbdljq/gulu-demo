@@ -5,14 +5,18 @@
         <g-icon class="loading icon" name="loading" v-if="loading"></g-icon>
         <div class="content">
             <slot></slot>
+            <!--<slot/>-->
         </div>
 
     </button>
 </template>
 <script>
+//import Vue from 'vue'
+
     import Icon from './icon'
+  //  Vue.component('g-icon',Icon)
     export default {
-        component:{
+        components: {
             'g-icon': Icon
         },
         props: {

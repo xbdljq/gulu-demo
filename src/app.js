@@ -20,6 +20,7 @@ import chai from 'chai'
 import spies from 'chai-spies'
 chai.use(spies)
 const  expect = chai.expect
+try{
 {
     const Constructor = Vue.extend(Button)
     const  button = new Constructor({
@@ -32,6 +33,8 @@ const  expect = chai.expect
     let useElement = button.$el.querySelector('use')
     let href = useElement.getAttribute('xlink:href')
     expect(href).to.eq('#i-settings')
+    button.$el.remove()
+    button.$destroy()
 }
 {
     const Constructor = Vue.extend(Button)
@@ -146,4 +149,11 @@ const  expect = chai.expect
 
     // button.$el.remove()
     // button.$destroy()
+}
+}catch(error){
+    window.errors = [error]
+}finally{
+    window.error && window.errors.forEach((error) => {
+        console.error(error.message)
+    })
 }
